@@ -12,20 +12,17 @@ interface DevFestLilleRepository {
     }
 }
 
-const val BREAK = "BREAK"
 data class Talk(
     val title: String,
     val abstract: String,
     val level: Level,
-    val format: String,
+    val format: Format,
     val category: String,
-    val hour: Date,
+    val startTime: Date,
+    val endTime: Date,
     val room: Room,
     val speakers: List<Speaker>
-) {
-    val isBreak: Boolean
-        get() = title == BREAK
-}
+)
 
 data class Speaker(
     val displayName: String,
@@ -36,6 +33,12 @@ data class Speaker(
     val github: String?,
     val twitter: String?
 )
+
+enum class Format(val minutes: Int) {
+    CONFERENCE(50),
+    QUICKIE(30),
+    PAUSE(20)
+}
 
 enum class Level {
     BEGINNER,
@@ -49,6 +52,12 @@ enum class Room {
     SCIENCE_FICTION,
     THRILLER,
     UNKNOWN;
+}
+
+fun String.toFormat(): Format = when (this) {
+    "Quickies" -> Format.QUICKIE
+    "Conférence" -> Format.CONFERENCE
+    else -> Format.CONFERENCE
 }
 
 fun String.toLevel(): Level = when (this) {

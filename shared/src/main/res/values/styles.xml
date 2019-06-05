@@ -20,13 +20,17 @@
     <item name="textAppearanceHeadline5">@style/TextAppearance.DevFest.Headline5</item>
     <item name="textAppearanceHeadline6">@style/TextAppearance.DevFest.Headline6</item>
     <item name="textAppearanceSubtitle1">@style/TextAppearance.DevFest.Subtitle1</item>
+    <item name="textAppearanceSubtitle2">@style/TextAppearance.DevFest.Subtitle2</item>
+    <item name="textAppearanceBody1">@style/TextAppearance.DevFest.Body1</item>
+    <item name="textAppearanceOverline">@style/TextAppearance.DevFest.Overline</item>
   </style>
 
-  <style name="Theme.DevFest.AppBar" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
+  <style name="Theme.DevFest.AppBar" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar"/>
 
   <style name="TextAppearance.DevFest.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
     <item name="fontFamily">@font/open_sans</item>
     <item name="android:fontFamily">@font/open_sans</item>
+    <item name="android:textStyle">bold</item>
     <item name="android:textColor">@color/colorPrimaryDark</item>
   </style>
 
@@ -40,6 +44,25 @@
 
   <style name="TextAppearance.DevFest.Subtitle1" parent="@style/TextAppearance.MaterialComponents.Subtitle1">
     <item name="fontFamily">@font/open_sans</item>
+    <item name="android:fontFamily">@font/open_sans</item>
+  </style>
+
+  <style name="TextAppearance.DevFest.Subtitle2" parent="@style/TextAppearance.MaterialComponents.Subtitle2">
+    <item name="fontFamily">@font/open_sans</item>
+    <item name="android:fontFamily">@font/open_sans</item>
+  </style>
+
+  <style name="TextAppearance.DevFest.Body1" parent="@style/TextAppearance.MaterialComponents.Body1">
+    <item name="fontFamily">@font/open_sans</item>
+    <item name="android:fontFamily">@font/open_sans</item>
+  </style>
+
+  <style name="TextAppearance.DevFest.Overline" parent="@style/TextAppearance.MaterialComponents.Overline">
+    <item name="fontFamily">@font/open_sans</item>
+    <item name="android:fontFamily">@font/open_sans</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textColor">@color/colorPrimaryDark</item>
+    <item name="android:textSize">14sp</item>
   </style>
 
   <style name="Theme.DevFest.TimeHeaders">

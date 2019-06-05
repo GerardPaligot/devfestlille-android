@@ -7,6 +7,7 @@ interface DevFestLilleNetworkDataSource {
     fun talks(): Single<List<Talk>>
 
     companion object {
+        const val BREAK = "BREAK"
         fun create(): DevFestLilleNetworkDataSource = DevFestLilleNetworkDataSourceImpl(DevFestLilleService.create())
     }
 }

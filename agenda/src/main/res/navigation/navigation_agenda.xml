@@ -4,5 +4,13 @@
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navigation_main" app:startDestination="@id/agendaFragment">
 
   <fragment android:id="@+id/agendaFragment" android:name="com.paligot.agenda.AgendaFragment"
-            android:label="AgendaFragment"/>
+            android:label="AgendaFragment">
+    <action android:id="@+id/action_agendaFragment_to_sessionFragment" app:destination="@id/sessionFragment"
+            app:popUpTo="@+id/agendaFragment"/>
+  </fragment>
+
+  <fragment android:id="@+id/sessionFragment" android:name="com.paligot.session.SessionFragment"
+            android:label="SessionFragment">
+    <argument android:name="talk" app:argType="com.paligot.internal.TalkUi" />
+  </fragment>
 </navigation>

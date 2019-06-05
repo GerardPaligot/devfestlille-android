@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="agenda_title">Agenda</string>
+  <string name="agenda_session_title">Information session</string>
+
   <string name="agenda_room_action">Salle Action</string>
   <string name="agenda_room_sf">Salle Science-Fiction</string>
   <string name="agenda_room_comedy">Salle Comédie</string>
   <string name="agenda_room_thriller">Salle Thriller</string>
   <string name="agenda_room_unknown">Salle perdue</string>
+
+  <string name="agenda_level_beginner">Débutant</string>
+  <string name="agenda_level_intermediate">Intermédiaire</string>
+  <string name="agenda_level_unknown">Badass, sans doute…</string>
+
+  <string name="agenda_format_conference">Conférence</string>
+  <string name="agenda_format_quickie">Quickie</string>
   <string name="agenda_pause">Pause</string>
+
+  <string name="agenda_speakers_title">Speakers</string>
+  <string name="agenda_speaker_role">Dans le rôle de %s</string>
 </resources>

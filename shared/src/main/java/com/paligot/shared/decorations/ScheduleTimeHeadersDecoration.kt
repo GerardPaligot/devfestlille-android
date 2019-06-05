@@ -70,7 +70,7 @@ class ScheduleTimeHeadersDecoration(context: Context, sessions: List<Talk>) : Re
 
     // Get the sessions index:start time and create header layouts for each
     private val timeSlots: Map<Int, StaticLayout> = sessions
-        .mapIndexed { index, session -> index to session.hour }
+        .mapIndexed { index, session -> index to session.startTime }
         .distinctBy { it.second.hours to it.second.minutes }.map { it.first to createHeader(it.second) }
         .toMap()
 

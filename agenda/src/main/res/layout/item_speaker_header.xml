@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" app:layout_constraintGuide_begin="16dp" android:id="@+id/guideline"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:id="@+id/guideline2" app:layout_constraintGuide_end="16dp"/>
+    <TextView
+        android:text="@string/agenda_speakers_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView" app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="24dp"
+        android:textAppearance="?attr/textAppearanceOverline"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"/>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

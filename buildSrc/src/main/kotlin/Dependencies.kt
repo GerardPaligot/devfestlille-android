@@ -9,7 +9,7 @@ object Versions {
     val material = "1.1.0-alpha02"
     val constraint = "1.1.3"
     val recyclerview = "1.0.0"
-    val navigation = "2.1.0-alpha03"
+    val navigation = "2.1.0-alpha05"
     val livedata = "2.1.0-beta01"
     val fragment = "1.1.0-alpha08"
 
@@ -19,6 +19,8 @@ object Versions {
     val timber = "4.7.1"
     val rxjava = "2.2.6"
     val rxandroid = "2.1.0"
+
+    val circular = "3.2.0"
 
     val kotlin = "1.3.31"
 }
@@ -30,6 +32,7 @@ object Dependencies {
     val timber = "com.jakewharton.timber:timber:${Versions.timber}"
     val rxJava = "io.reactivex.rxjava2:rxjava:${Versions.rxjava}"
     val rxAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxandroid}"
+    val circular = "com.mikhaellopez:circularimageview:${Versions.circular}"
     val androidx = AndroidX
     val retrofit = Retrofit
     val okhttp = OkHttp

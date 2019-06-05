@@ -6,13 +6,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.paligot.agenda.databinding.ItemAgendaBinding
+import com.paligot.internal.TalkUi
+import com.paligot.shared.extensions.addRipple
 import com.paligot.shared.livedata.SingleLiveEvent
-import com.paligot.shared.repositories.Room
-import com.paligot.shared.repositories.Talk
 
-class AgendaAdapter : ListAdapter<Talk, AgendaAdapter.ViewHolder>(AgendaConnectedDiff()) {
-    val itemSelected: SingleLiveEvent<Talk> by lazy {
-        SingleLiveEvent<Talk>()
+class AgendaAdapter : ListAdapter<TalkUi, AgendaAdapter.ViewHolder>(AgendaConnectedDiff) {
+    val itemSelected: SingleLiveEvent<TalkUi> by lazy {
+        SingleLiveEvent<TalkUi>()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -23,34 +23,27 @@ class AgendaAdapter : ListAdapter<Talk, AgendaAdapter.ViewHolder>(AgendaConnecte
         val item = getItem(position)
         holder.apply {
             bind(item)
-            itemView.setOnClickListener { itemSelected.setValue(item) }
+            itemView.setOnClickListener { if (item.isBreak.not()) itemSelected.setValue(item) }
             itemView.tag = item
         }
     }
 
     class ViewHolder(private val binding: ItemAgendaBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: Talk) {
+        fun bind(item: TalkUi) {
             binding.talk = item
             binding.executePendingBindings()
+            if (item.isBreak) binding.container.setBackgroundResource(android.R.color.transparent)
+            else binding.container.addRipple()
         }
     }
 }
 
-class AgendaConnectedDiff : DiffUtil.ItemCallback<Talk>() {
-    override fun areItemsTheSame(oldItem: Talk, newItem: Talk): Boolean {
+object AgendaConnectedDiff : DiffUtil.ItemCallback<TalkUi>() {
+    override fun areItemsTheSame(oldItem: TalkUi, newItem: TalkUi): Boolean {
         return oldItem.title == newItem.title
     }
 
-    override fun areContentsTheSame(oldItem: Talk, newItem: Talk): Boolean {
+    override fun areContentsTheSame(oldItem: TalkUi, newItem: TalkUi): Boolean {
         return oldItem == newItem
     }
 }
-
-val Talk.roomDisplayName
-    get() = when (room) {
-        Room.ACTION -> R.string.agenda_room_action
-        Room.COMEDY -> R.string.agenda_room_comedy
-        Room.SCIENCE_FICTION -> R.string.agenda_room_sf
-        Room.THRILLER -> R.string.agenda_room_thriller
-        Room.UNKNOWN -> R.string.agenda_room_unknown
-    }

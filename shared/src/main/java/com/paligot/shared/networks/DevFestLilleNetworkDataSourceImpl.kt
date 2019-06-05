@@ -1,5 +1,7 @@
 package com.paligot.shared.networks
 
+import com.paligot.shared.extensions.addMinutes
+import com.paligot.shared.networks.DevFestLilleNetworkDataSource.Companion.BREAK
 import com.paligot.shared.repositories.*
 import io.reactivex.Single
 import io.reactivex.functions.BiFunction
@@ -11,13 +13,17 @@ class DevFestLilleNetworkDataSourceImpl(private val service: DevFestLilleService
             service.getSpeakers().map { it.values }.singleOrError(),
             BiFunction<Collection<TalkNetwork>, Collection<SpeakerNetwork>, List<Talk>> { talks, speakers ->
                 return@BiFunction talks.map { talk ->
+                    val format = talk.format.toFormat()
+                    val startTime = Date(talk.hour.timestamp * 1000)
+                    val endTime = startTime.addMinutes(format.minutes)
                     return@map Talk(
                         talk.title,
                         talk.abstract,
                         talk.level.toLevel(),
-                        talk.format,
+                        format,
                         talk.category,
-                        Date(talk.hour.timestamp * 1000),
+                        startTime,
+                        endTime,
                         talk.room.toRoom(),
                         speakers
                             .filter { speaker -> talk.speakers.find { it == speaker.displayName } != null }
@@ -40,7 +46,7 @@ class DevFestLilleNetworkDataSourceImpl(private val service: DevFestLilleService
                     createPause(17, 0)
                 )
             })
-            .map { it.sortedBy { it.hour.time } }
+            .map { it.sortedBy { it.startTime.time } }
     }
 
     private fun createPause(hour: Int, minutes: Int): Talk {
@@ -50,6 +56,8 @@ class DevFestLilleNetworkDataSourceImpl(private val service: DevFestLilleService
         calendar.set(Calendar.DAY_OF_MONTH, 14)
         calendar.set(Calendar.HOUR_OF_DAY, hour)
         calendar.set(Calendar.MINUTE, minutes)
-        return Talk(BREAK, "", Level.UNKNOWN, "", "", Date(calendar.timeInMillis), Room.UNKNOWN, emptyList())
+        val startTime = Date(calendar.timeInMillis)
+        val endTime = startTime.addMinutes(Format.PAUSE.minutes)
+        return Talk(BREAK, "", Level.UNKNOWN, Format.PAUSE, "", startTime, endTime, Room.UNKNOWN, emptyList())
     }
 }

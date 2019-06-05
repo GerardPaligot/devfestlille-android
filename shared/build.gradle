@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion Versions.targetSdk
@@ -19,6 +20,9 @@ android {
         }
     }
 
+    dataBinding {
+        enabled true
+    }
 }
 
 dependencies {
@@ -29,6 +33,7 @@ dependencies {
     implementation Dependencies.retrofit.gson
     implementation Dependencies.okhttp.library
     implementation Dependencies.okhttp.logging
+    implementation(Dependencies.picasso)
 
     implementation Dependencies.androidx.core
     implementation Dependencies.androidx.material
