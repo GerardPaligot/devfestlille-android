@@ -1,81 +1,15 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.versions = [
-            'targetSdk'    : 28,
-            'minSdk'       : 17,
-
-            'androidPlugin': '3.6.0-alpha03',
-
-            'core'         : '1.2.0-alpha01',
-            'appCompat'    : "1.0.2",
-            'material'     : "1.1.0-alpha02",
-            'constraint'   : "1.1.3",
-            'recyclerview' : "1.0.0",
-            'navigation'   : "2.1.0-alpha05",
-            'livedata'     : "2.1.0-beta01",
-            'fragment'     : "1.1.0-alpha08",
-
-            'retrofit'     : "2.5.0",
-            'okhttp'       : "3.12.1",
-            'picasso'      : "2.71828",
-            'timber'       : "4.7.1",
-            'rxjava'       : "2.2.6",
-            'rxandroid'    : "2.1.0",
-
-            'circular'     : "3.2.0",
-
-            'kotlin'       : "1.3.31",
-    ]
-
-    ext.deps = [
-            'androidPlugin': "com.android.tools.build:gradle:${versions.androidPlugin}",
-            'kotlin'       : [
-                    'plugin': "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
-                    'stdlib': "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
-            ],
-            'picasso'      : "com.squareup.picasso:picasso:${versions.picasso}",
-            'timber'       : "com.jakewharton.timber:timber:${versions.timber}",
-            'rxJava'       : "io.reactivex.rxjava2:rxjava:${versions.rxjava}",
-            'rxAndroid'    : "io.reactivex.rxjava2:rxandroid:${versions.rxandroid}",
-            'circular'     : "com.mikhaellopez:circularimageview:${versions.circular}",
-            'androidx'     : [
-                    'core'      : "androidx.core:core-ktx:${versions.core}",
-                    'appCompat' : "androidx.appcompat:appcompat:${versions.appCompat}",
-                    'material'  : "com.google.android.material:material:${versions.material}",
-                    'constraint': "androidx.constraintlayout:constraintlayout:${versions.constraint}",
-                    'recycler'  : "androidx.recyclerview:recyclerview:${versions.recyclerview}",
-                    'fragment'  : "androidx.fragment:fragment-ktx:${versions.fragment}",
-                    'liveData'  : [
-                            'extensions': "androidx.lifecycle:lifecycle-extensions:${versions.livedata}",
-                            'compiler'  : "androidx.lifecycle:lifecycle-compiler:${versions.livedata}"
-                    ],
-                    'navigation': [
-                            'plugin'  : "androidx.navigation:navigation-safe-args-gradle-plugin:${versions.navigation}",
-                            'fragment': "androidx.navigation:navigation-fragment-ktx:${versions.navigation}",
-                            'ui'      : "androidx.navigation:navigation-ui-ktx:${versions.navigation}"
-                    ]
-            ],
-            'retrofit'     : [
-                    'library': "com.squareup.retrofit2:retrofit:${versions.retrofit}",
-                    'rxJava' : "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}",
-                    'gson'   : "com.squareup.retrofit2:converter-gson:${versions.retrofit}"
-            ],
-            'okhttp'       : [
-                    'library': "com.squareup.okhttp3:okhttp:${versions.okhttp}",
-                    'logging': "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}"
-            ]
-    ]
-
     repositories {
         google()
         jcenter()
     }
 
     dependencies {
-        classpath(deps.androidPlugin)
-        classpath(deps.androidx.navigation.plugin)
-        classpath(deps.kotlin.plugin)
+        classpath(Dependencies.androidPlugin)
+        classpath(Dependencies.androidx.navigation.plugin)
+        classpath(Dependencies.kotlin.plugin)
     }
 }
 

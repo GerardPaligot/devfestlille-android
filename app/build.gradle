@@ -5,12 +5,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion(versions.targetSdk)
+    compileSdkVersion(Versions.targetSdk)
 
     defaultConfig {
         applicationId = "com.paligot.devfestlille"
-        minSdkVersion(versions.minSdk)
-        targetSdkVersion(versions.targetSdk)
+        minSdkVersion(Versions.minSdk)
+        targetSdkVersion(Versions.targetSdk)
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -30,8 +30,8 @@ android {
 dependencies {
     implementation(project(":agenda"))
 
-    implementation(deps.kotlin.stdlib)
+    implementation(Dependencies.kotlin.stdlib)
 
-    implementation(deps.androidx.navigation.fragment)
-    implementation(deps.androidx.navigation.ui)
+    implementation(Dependencies.androidx.navigation.fragment)
+    implementation(Dependencies.androidx.navigation.ui)
 }
