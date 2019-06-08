@@ -3,11 +3,11 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion Versions.targetSdk
+    compileSdkVersion versions.targetSdk
 
     defaultConfig {
-        minSdkVersion Versions.minSdk
-        targetSdkVersion Versions.targetSdk
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
         versionCode 1
         versionName "1.0"
         consumerProguardFiles 'consumer-rules.pro'
@@ -26,16 +26,16 @@ android {
 }
 
 dependencies {
-    implementation Dependencies.kotlin
+    implementation deps.kotlin.stdlib
 
-    implementation Dependencies.retrofit.library
-    implementation Dependencies.retrofit.rxJava
-    implementation Dependencies.retrofit.gson
-    implementation Dependencies.okhttp.library
-    implementation Dependencies.okhttp.logging
-    implementation(Dependencies.picasso)
+    implementation deps.retrofit.library
+    implementation deps.retrofit.rxJava
+    implementation deps.retrofit.gson
+    implementation deps.okhttp.library
+    implementation deps.okhttp.logging
+    implementation deps.picasso
 
-    implementation Dependencies.androidx.core
-    implementation Dependencies.androidx.material
-    implementation Dependencies.androidx.liveData.extensions
+    implementation deps.androidx.core
+    implementation deps.androidx.material
+    implementation deps.androidx.liveData.extensions
 }

@@ -3,12 +3,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion Versions.targetSdk
+    compileSdkVersion versions.targetSdk
 
     defaultConfig {
         applicationId "com.paligot.devfestlille"
-        minSdkVersion Versions.minSdk
-        targetSdkVersion Versions.targetSdk
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -28,8 +28,8 @@ android {
 dependencies {
     implementation project(':agenda')
 
-    implementation Dependencies.kotlin
+    implementation deps.kotlin.stdlib
 
-    implementation Dependencies.androidx.navigation.fragment
-    implementation Dependencies.androidx.navigation.ui
+    implementation deps.androidx.navigation.fragment
+    implementation deps.androidx.navigation.ui
 }
