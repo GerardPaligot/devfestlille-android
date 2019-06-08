@@ -5,11 +5,11 @@ apply plugin: "kotlin-kapt"
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
-    compileSdkVersion versions.targetSdk
+    compileSdkVersion(versions.targetSdk)
 
     defaultConfig {
-        minSdkVersion versions.minSdk
-        targetSdkVersion versions.targetSdk
+        minSdkVersion(versions.minSdk)
+        targetSdkVersion(versions.targetSdk)
         versionCode = 1
         versionName = "1.0"
     }
@@ -26,20 +26,20 @@ androidExtensions {
 dependencies {
     implementation(project(":shared"))
 
-    implementation deps.kotlin.stdlib
+    implementation(deps.kotlin.stdlib)
 
-    implementation deps.rxJava
-    implementation deps.rxAndroid
-    implementation deps.timber
-    implementation deps.circular
+    implementation(deps.rxJava)
+    implementation(deps.rxAndroid)
+    implementation(deps.timber)
+    implementation(deps.circular)
 
-    implementation deps.androidx.appCompat
-    implementation deps.androidx.material
-    implementation deps.androidx.constraint
-    implementation deps.androidx.recycler
-    implementation deps.androidx.fragment
-    implementation deps.androidx.liveData.extensions
-    kapt deps.androidx.liveData.compiler
-    implementation deps.androidx.navigation.fragment
-    implementation deps.androidx.navigation.ui
+    implementation(deps.androidx.appCompat)
+    implementation(deps.androidx.material)
+    implementation(deps.androidx.constraint)
+    implementation(deps.androidx.recycler)
+    implementation(deps.androidx.fragment)
+    implementation(deps.androidx.liveData.extensions)
+    kapt(deps.androidx.liveData.compiler)
+    implementation(deps.androidx.navigation.fragment)
+    implementation(deps.androidx.navigation.ui)
 }

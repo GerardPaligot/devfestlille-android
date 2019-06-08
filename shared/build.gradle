@@ -3,20 +3,20 @@ apply plugin: "kotlin-android"
 apply plugin: "kotlin-kapt"
 
 android {
-    compileSdkVersion versions.targetSdk
+    compileSdkVersion(versions.targetSdk)
 
     defaultConfig {
-        minSdkVersion versions.minSdk
-        targetSdkVersion versions.targetSdk
+        minSdkVersion(versions.minSdk)
+        targetSdkVersion(versions.targetSdk)
         versionCode = 1
         versionName = "1.0"
-        consumerProguardFiles "consumer-rules.pro"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         release {
             minifyEnabled = false
-            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
 
@@ -26,16 +26,16 @@ android {
 }
 
 dependencies {
-    implementation deps.kotlin.stdlib
+    implementation(deps.kotlin.stdlib)
 
-    implementation deps.retrofit.library
-    implementation deps.retrofit.rxJava
-    implementation deps.retrofit.gson
-    implementation deps.okhttp.library
-    implementation deps.okhttp.logging
-    implementation deps.picasso
+    implementation(deps.retrofit.library)
+    implementation(deps.retrofit.rxJava)
+    implementation(deps.retrofit.gson)
+    implementation(deps.okhttp.library)
+    implementation(deps.okhttp.logging)
+    implementation(deps.picasso)
 
-    implementation deps.androidx.core
-    implementation deps.androidx.material
-    implementation deps.androidx.liveData.extensions
+    implementation(deps.androidx.core)
+    implementation(deps.androidx.material)
+    implementation(deps.androidx.liveData.extensions)
 }
