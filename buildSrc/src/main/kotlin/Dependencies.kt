@@ -2,7 +2,7 @@ object Versions {
     val targetSdk = 28
     val minSdk = 17
 
-    val androidPlugin = "3.4.0"
+    val androidPlugin = "3.6.0-alpha03"
 
     val core = "1.2.0-alpha01"
     val appCompat = "1.0.2"

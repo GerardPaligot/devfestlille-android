@@ -1,8 +1,8 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
-    id("kotlin-android-extensions")
     id("kotlin-kapt")
+    id("kotlin-android-extensions")
     id("androidx.navigation.safeargs.kotlin")
 }
 
@@ -17,12 +17,12 @@ android {
     }
 
     dataBinding {
-        enabled = true
+        isEnabled = true
     }
 }
 
 androidExtensions {
-    experimental = true
+    isExperimental = true
 }
 
 dependencies {
