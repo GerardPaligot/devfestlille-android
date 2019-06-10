@@ -1,4 +1,5 @@
 plugins {
+    id("DevFestPlugin")
     id("com.android.library")
     id("kotlin-android")
     id("kotlin-kapt")
@@ -7,15 +8,6 @@ plugins {
 }
 
 android {
-    compileSdkVersion(Versions.targetSdk)
-
-    defaultConfig {
-        minSdkVersion(Versions.minSdk)
-        targetSdkVersion(Versions.targetSdk)
-        versionCode = 1
-        versionName = "1.0"
-    }
-
     dataBinding {
         isEnabled = true
     }

@@ -1,20 +1,16 @@
 plugins {
+    id("DevFestPlugin")
     id("com.android.application")
     id("kotlin-android")
     id("kotlin-kapt")
 }
 
 android {
-    compileSdkVersion(Versions.targetSdk)
-
     defaultConfig {
         applicationId = "com.paligot.devfestlille"
-        minSdkVersion(Versions.minSdk)
-        targetSdkVersion(Versions.targetSdk)
-        versionCode = 1
-        versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         named("release") {
             isMinifyEnabled = false

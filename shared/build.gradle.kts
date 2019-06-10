@@ -1,25 +1,13 @@
 plugins {
+    id("DevFestPlugin")
     id("com.android.library")
     id("kotlin-android")
     id("kotlin-kapt")
 }
 
 android {
-    compileSdkVersion(Versions.targetSdk)
-
     defaultConfig {
-        minSdkVersion(Versions.minSdk)
-        targetSdkVersion(Versions.targetSdk)
-        versionCode = 1
-        versionName = "1.0"
         consumerProguardFiles("consumer-rules.pro")
-    }
-
-    buildTypes {
-        named("release") {
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-        }
     }
 
     dataBinding {
